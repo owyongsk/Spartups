@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="span6">
+    <div class="boxes">
+      <%= form_for @project, :html => {:multipart => true,
+                                       :class => "form-horizontal"} do |f| %>
+        <% if @project.errors.any? %>
+          <div class="alert alert-error">
+          <% @project.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+          <% end %>
+          </div>
+        <% end %>
+
+        <fieldset>
+          <legend><%= @title %></legend>
+          <div class="control-group">
+            <%= f.label "Name", :class => "control-label" %>
+            <div class="controls"><%= f.text_field :title %></div>
+          </div>
+          <div class="control-group">
+            <%= f.label "Description of the Project", :class => "control-label" %>
+            <div class="controls"><%= f.text_area :desc, :rows => "10" %></div>
+          </div>
+          <div class="control-group">
+            <%= f.label "What you need", :class => "control-label" %>
+            <div class="controls"><%= f.text_area :need, :rows => "10" %></div>
+          </div>
+          <div class="form-actions">
+            <%= f.submit :class => "btn-success" %>
+          </div>
+        </fieldset>
+      <% end %>
+    </div>
+  </div>
+</div>

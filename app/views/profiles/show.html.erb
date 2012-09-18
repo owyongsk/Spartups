@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="span6">
+    <div class="boxes">
+      
+      <% if @profile.errors.any? %>
+        <div class="alert alert-error">
+        <% @profile.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+        </div>
+      <% end %>
+
+      <fieldset>
+        <legend><%= @title %></legend>
+        <br />
+        <dl class="dl-horizontal">
+          <dt>Profession</dt>
+          <dd><%= @profile.profession %></dd>
+          <br />
+          <dt>Organization</dt>
+          <dd><%= @profile.entity %></dd>
+          <br />
+          <dt>Skills</dt>
+          <dd><%= @profile.skills %></dd>
+          <br />
+          <% unless @profile.projects.blank? %>
+            <dt>Working On</dt>
+            <% @profile.projects.each do |p| %>
+              <dd><%= link_to p.title, p %></dd>
+            <% end %>
+          <% end %>
+        </dl>
+      </fieldset>
+    </div>
+  </div>
+</div>

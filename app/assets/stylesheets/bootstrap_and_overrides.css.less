@@ -1,0 +1,59 @@
+@import "twitter/bootstrap/bootstrap";
+body { padding-top: 60px; }
+
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+// Overrides for variables
+@baseFontSize: 14px;
+
+// Media queries
+/*@media (max-width: 480px) {*/
+/*}*/
+
+// Custom
+.well {
+	margin-top: 10px;
+}
+
+body {
+	background-color: @blue;
+}
+
+.boxes > fieldset, .boxes * fieldset {
+	padding: 20px;
+}
+
+.boxes > .buttons, .boxes * .buttons {
+	text-align: right;
+}
+
+.boxed {
+	.border-radius;
+	.box-shadow;
+	#translucent > .background;
+}
+
+.btn-project {
+	text-align: right;
+}
+
+.row {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.boxes {
+	.boxed;
+	padding: 30px;
+	margin-left: 0px; // needed to make things the same
+}
+
+footer {
+	margin: 45px auto 0 auto;
+	text-align: center;
+	margin-bottom: 40px;
+}

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="span6">
+    <div class="boxes">
+      <legend><%= @title %></legend>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Organization</th>
+            <th>Startup</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @profiles.each do |profile| %>
+            <tr>
+              <td><%= link_to profile.name, profile %></td>
+              <td><%= profile.profession %></td>
+              <td><%= profile.entity %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @profiles %>
+    </div>
+  </div>
+</div>

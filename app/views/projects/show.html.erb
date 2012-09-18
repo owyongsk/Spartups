@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="span6">
+    <div class="boxes">
+      <fieldset>
+        
+        <legend><%= @title %></legend>
+        <br />
+        <dl class="dl-horizontal">
+          <dt>Champion</dt>
+          <dd>
+            <%= link_to @project.profiles.first.name, @project.profiles.first %>
+          </dd>
+          <br />
+          <dt>Description</dt>
+          <dd><%= @project.desc %></dd>
+          <br />
+          <dt>What we need</dt>
+          <dd><%= @project.need %></dd>
+          <br />
+          <% unless @project.profiles.drop(1).blank? %>
+            <dt>Supporters</dt>
+            <% @project.profiles.drop(1).each do |p| %>
+              <dd><%= link_to p.name, p %></dd>
+            <% end %>
+          <% end %>
+        </dl>
+      </fieldset>
+      <div class="buttons">
+        <% unless current_user.profile == @project.profiles.first %>
+          <% if @relation.blank? %>
+            <%= form_for @new_relation do |f| %>
+              <%= f.hidden_field :relationship, :value => "Supporter" %>
+              <%= f.hidden_field :profile_id, :value => current_user.profile.id %>
+              <%= f.hidden_field :project_id, :value => @project.id %>
+              <%= f.submit "I'm Also Working on this Project", :class => "btn" %>
+              <%#Need to fix this part, not DRY enough and I'm tired%>
+              <%= mail_to @project.profiles.first.user.email, "Send Email",
+                          :class => "btn btn-info btn-project" %>
+            <% end %>
+          <% else %>
+            <%= link_to "I'm No Longer Working on this Project", @relation, 
+              :method => :delete,
+              :title => @project.title,
+              :class => "btn" %>
+            <%= mail_to @project.profiles.first.user.email, "Send Email",
+                        :class => "btn btn-info btn-project" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
