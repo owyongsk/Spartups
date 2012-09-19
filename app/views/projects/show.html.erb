@@ -29,7 +29,7 @@
         <% unless current_user.profile == @project.profiles.first %>
           <% if @relation.blank? %>
             <%= form_for @new_relation do |f| %>
-              <%= f.hidden_field :relationship, :value => "Supporter" %>
+              <%= f.hidden_field :relationship, :value => "Contributor" %>
               <%= f.hidden_field :profile_id, :value => current_user.profile.id %>
               <%= f.hidden_field :project_id, :value => @project.id %>
               <%= f.submit "I'm Also Working on this Project", :class => "btn" %>
