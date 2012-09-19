@@ -8,7 +8,7 @@ class RelationsController < ApplicationController
       flash.now[:success] = "You are now supporting this project"
       redirect_to @relation.project
     else
-      flash.now[:error] = "An error occured, you can't support this project. ):"
+      flash.now[:error] = "An error occured, I'll be lying if I knew what was wrong."
       redirect_to @relation.project
     end
   end
@@ -16,7 +16,7 @@ class RelationsController < ApplicationController
   def destroy
     @relation = Relation.find(params[:id])
     @relation.destroy
-    redirect_to projects_path
+    redirect_to @relation.project
     flash.now[:error] = "You have now withdrew your support ):"
   end
 
