@@ -1,4 +1,3 @@
-apipass = YAML.load(File.read(Rails.root.join('config', 'apipass.yml')))[Rails.env]   
 Spartups::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb 
   # In the development environment your application's code is reloaded on
@@ -24,8 +23,8 @@ Spartups::Application.configure do
     domain: "spartups.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: apipass['google_email'],
-    password: apipass['google_pass']
+    user_name: ENV['GOOGLE_EMAIL'],
+    password: ENV['GOOGLE_PASS']
   }
 
   # Specify what domain to use for mailer URLs

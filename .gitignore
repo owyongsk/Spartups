@@ -18,3 +18,5 @@
 *.yml
 Procfile
 *.swp
+Procfile
+.env
