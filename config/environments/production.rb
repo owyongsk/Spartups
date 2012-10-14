@@ -1,3 +1,5 @@
+apipass = YAML.load(File.read(Rails.root.join('config', 'apipass.yml')))[Rails.env]   
+
 Spartups::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -29,6 +31,21 @@ Spartups::Application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
+
+  # Email SMTP setup
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "spartups.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: apipass['google_email'],
+    password: apipass['google_pass']
+  }
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = {host: "www.spartups.com"}
 
   # See everything in the log (default is :info)
   # config.log_level = :debug
