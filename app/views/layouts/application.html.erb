@@ -50,9 +50,10 @@
           <div class="row">
             <% if user_signed_in?  %>
               <%= render 'layouts/sidebar' %>
-              <div class="span6">
+              <div class="span8">
             <% else %>
-              <div class="span6 offset3">
+              <div class="span8 offset2">
+                <%= render 'layouts/info' %>
             <% end %>
             <% [:notice, :error, :alert].each do |level| %>
             <% unless flash[level].blank? %>

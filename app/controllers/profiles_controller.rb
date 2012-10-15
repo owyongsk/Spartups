@@ -1,11 +1,11 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!
-  before_filter :profile_init, :only => [:edit, :update, :show]
+  before_filter :authenticate_user!, :except => [:index]
+  before_filter :find_profile, :only => [:edit, :update, :show]
   before_filter :correct_user, :only => [:edit, :update]
 
   def index
     @title = "All Users"
-    @profiles = Profile.page(params[:page]).per(20)
+    @profiles = Profile.where("name != ''").page(params[:page]).per(20)
   end
 
   def edit
@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
   end
 
   private
-    def profile_init
+  def find_profile
       @profile = Profile.find(params[:id])
     end
 

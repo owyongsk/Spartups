@@ -6,11 +6,13 @@ Spartups::Application.routes.draw do
     get 'signup' => 'devise/registrations#new'
   end
 
+  match '/about' => 'pages#about'
+
   resources :profiles
   resources :projects
   resources :relations
 
-  root :to => 'pages#home'
+  root :to => 'profiles#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="span6">
+  <div class="span8">
     <div class="boxes">
       <legend><%= @title %></legend>
       <table class="table">
@@ -7,6 +7,7 @@
           <tr>
             <th>Name</th>
             <th>Project Champion</th>
+            <th>Need</th>
           </tr>
         </thead>
         <tbody>
@@ -14,6 +15,7 @@
             <tr>
               <td><%= link_to project.title, project %></td>
               <td><%= project.profiles.first.name %></td>
+              <td><%= project.need %></td>
             </tr>
           <% end %>
         </tbody>

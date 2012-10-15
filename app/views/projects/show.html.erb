@@ -1,8 +1,7 @@
 <div class="row">
-  <div class="span6">
+  <div class="span8">
     <div class="boxes">
       <fieldset>
-        
         <legend><%= @title %></legend>
         <br />
         <dl class="dl-horizontal">
@@ -26,7 +25,10 @@
         </dl>
       </fieldset>
       <div class="buttons">
-        <% unless current_user.profile == @project.profiles.first %>
+        <% if current_user.profile == @project.profiles.first %>
+          <%= link_to "Edit this Project", edit_project_path(@project), 
+                      :class => "btn btn-warning" %>
+        <% else %>
           <% if @relation.blank? %>
             <%= form_for @new_relation do |f| %>
               <%= f.hidden_field :relationship, :value => "Contributor" %>
