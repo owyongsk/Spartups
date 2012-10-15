@@ -23,6 +23,9 @@
           <dt>Skills</dt>
           <dd><%= @profile.skills %></dd>
           <br />
+          <dt>Looking For</dt>
+          <dd><%= @profile.need %></dd>
+          <br />
           <% unless @profile.projects.blank? %>
             <dt>Working On</dt>
             <% @profile.projects.each do |p| %>
