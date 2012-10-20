@@ -31,6 +31,9 @@ GEM
     addressable (2.3.2)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    bootstrap-kaminari-views (0.0.2)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     builder (3.0.3)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -182,6 +185,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-kaminari-views
   capybara
   coffee-rails (~> 3.2.1)
   devise

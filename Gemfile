@@ -6,6 +6,7 @@ gem 'twitter-bootstrap-rails', '2.0.4'
 gem 'devise'
 gem 'kaminari'
 gem 'rack-rewrite'
+gem 'bootstrap-kaminari-views'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
