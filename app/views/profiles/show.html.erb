@@ -12,9 +12,25 @@
       <% end %>
 
       <fieldset>
-        <legend><%= @title %></legend>
-        <br />
+        <legend>
+          <%= @title %>
+          <%= link_to image_tag(asset_path('Facebook.png')), 
+            "http://facebook.com/#{@profile.facebook}",
+            :target => "_blank" unless 
+            @profile.facebook.blank? %>
+          <%= link_to image_tag(asset_path('LinkedIn.png')), 
+            "http://linkedin.com/#{@profile.linkedin}",
+            :target => "_blank" unless 
+            @profile.linkedin.blank? %>
+          <%= link_to image_tag(asset_path('Twitter.png')), 
+            "http://twitter.com/#{@profile.twitter}",
+            :target => "_blank" unless
+            @profile.twitter.blank? %>
+        </legend>
         <dl class="dl-horizontal">
+          <dt>Professional Level</dt>
+          <dd><%= @profile.pro_level %></dd>
+          <br />
           <dt>Profession</dt>
           <dd><%= @profile.profession %></dd>
           <br />
@@ -26,6 +42,18 @@
           <br />
           <dt>Looking For</dt>
           <dd><%= @profile.need %></dd>
+          <br />
+          <dt>Need Advisors?</dt>
+          <dd><%= @profile.need_advisors ? "Yes" : "No" %></dd>
+          <br />
+          <dt>Need CoFounder?</dt>
+          <dd><%= @profile.need_cofounder ? "Yes" : "No" %></dd>
+          <br />
+          <dt>Need Temporary Help?</dt>
+          <dd><%= @profile.need_temp ? "Yes" : "No" %></dd>
+          <br />
+          <dt>Need Investors?</dt>
+          <dd><%= @profile.need_investors ? "Yes" : "No" %></dd>
           <br />
           <% unless @profile.projects.blank? %>
             <dt>Working On</dt>

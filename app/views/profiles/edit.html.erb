@@ -25,6 +25,11 @@
               :placeholder => "Google" %></div>
           </div>
           <div class="control-group">
+            <%= f.label "Professional Level", :class => "control-label" %>
+            <div class="controls"><%= f.select :pro_level,
+              ["Student", "Professional", "Entrepreneur"] %></div>
+          </div>
+          <div class="control-group">
             <%= f.label :profession, :class => "control-label" %>
             <div class="controls"><%= f.text_field :profession,
               :placeholder => "Wed Developer/Business Dev" %></div>
@@ -39,6 +44,42 @@
             <div class="controls"><%= f.text_area :skills, 
               :rows => "10",
               :placeholder => "Python, Marketing, Biz Dev" %></div>
+          </div>
+          <div class="control-group">
+            <%= f.label "Need Advisors?", :class => "control-label" %>
+            <div class="controls">
+              <%= f.check_box :need_advisors %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label "Need CoFounder?", :class => "control-label" %>
+            <div class="controls">
+              <%= f.check_box :need_cofounder %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label "Need Temporary Help?", :class => "control-label" %>
+            <div class="controls">
+              <%= f.check_box :need_temp %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label "Need Investors?", :class => "control-label" %>
+            <div class="controls">
+              <%= f.check_box :need_investors %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="profile_twitter" class="control-label">twitter.com/</label>
+            <div class="controls"><%= f.text_field :twitter %></div>
+          </div>
+          <div class="control-group">
+            <label for="profile_linkedin" class="control-label">linkedin.com/</label>
+            <div class="controls"><%= f.text_field :linkedin %></div>
+          </div>
+          <div class="control-group">
+            <label for="profile_facebook" class="control-label">facebook.com/</label>
+            <div class="controls"><%= f.text_field :facebook %></div>
           </div>
           <div class="form-actions">
             <%= f.submit :class => "btn-success" %>

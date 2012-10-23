@@ -2,7 +2,10 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   #has_and_belongs_to_many :projects
 
-  attr_accessible :user_id, :name, :entity, :orgtype, :profession, :skills, :need
+  attr_accessible :user_id, :name, :entity, :orgtype, :profession, :skills, 
+                  :need, :pro_level, :join_startup, :need_advisors,
+                  :need_cofounder, :need_temp, :need_investors, 
+                  :facebook, :twitter, :linkedin
 
   has_many :relations
   has_many :projects, :through => :relations
