@@ -11,6 +11,11 @@
             <%= link_to @project.profiles.first.name, @project.profiles.first %>
           </dd>
           <br />
+          <% if @project.site %>
+            <dt>Website</dt>
+            <dd><%= link_to @project.site, "http://" + @project.site %></dd>
+            <br />
+          <% end %>
           <dt>Description</dt>
           <dd><%= @project.desc %></dd>
           <br />

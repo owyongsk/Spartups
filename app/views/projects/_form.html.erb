@@ -19,6 +19,10 @@
             <div class="controls"><%= f.text_field :title %></div>
           </div>
           <div class="control-group">
+            <%= f.label "Website", :class => "control-label" %>
+            <div class="controls"><%= f.text_field :site, :placeholder => "www.google.com" %></div>
+          </div>
+          <div class="control-group">
             <%= f.label "Description of the Project", :class => "control-label" %>
             <div class="controls"><%= f.text_area :desc, :rows => "10" %></div>
           </div>

@@ -26,8 +26,17 @@
             "http://twitter.com/#{@profile.twitter}",
             :target => "_blank" unless
             @profile.twitter.blank? %>
+          <%= link_to image_tag(asset_path('Mail.png')), 
+            "mailto:#{@profile.user.email}",
+            :target => "_blank" if
+            @profile.email_display %>
         </legend>
         <dl class="dl-horizontal">
+          <% if @profile.phone_display %>
+            <dt>Professional Level</dt>
+            <dd><%= @profile.pro_level %></dd>
+            <br />
+          <% end %>
           <dt>Professional Level</dt>
           <dd><%= @profile.pro_level %></dd>
           <br />
@@ -35,7 +44,7 @@
           <dd><%= @profile.profession %></dd>
           <br />
           <dt>Organization</dt>
-          <dd><%= @profile.entity %></dd>
+          <dd><%= link_to @profile.entity, "http://" + @profile.org_website %></dd>
           <br />
           <dt>Skills</dt>
           <dd><%= @profile.skills %></dd>

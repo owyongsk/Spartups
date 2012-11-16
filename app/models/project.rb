@@ -4,5 +4,5 @@ class Project < ActiveRecord::Base
   has_many :relations
   has_many :profiles, :through => :relations
 
-  attr_accessible :title, :desc, :need
+  attr_accessible :title, :desc, :need, :site
 end
