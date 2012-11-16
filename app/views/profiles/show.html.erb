@@ -44,7 +44,11 @@
           <dd><%= @profile.profession %></dd>
           <br />
           <dt>Organization</dt>
-          <dd><%= link_to @profile.entity, "http://" + @profile.org_website %></dd>
+          <% if @profile.org_website and !@profile.org_website.blank? %>
+            <dd><%= link_to @profile.entity, "http://" + @profile.org_website %></dd>
+          <% else %>
+            <dd><%= @profile.entity %></dd>
+          <% end %>
           <br />
           <dt>Skills</dt>
           <dd><%= @profile.skills %></dd>
