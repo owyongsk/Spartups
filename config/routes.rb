@@ -7,6 +7,7 @@ Spartups::Application.routes.draw do
   end
 
   match '/about' => 'pages#about'
+  match '/excel' => 'pages#excel'
 
   resources :profiles
   resources :projects

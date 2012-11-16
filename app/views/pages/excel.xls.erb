@@ -1,0 +1,22 @@
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Name</th>
+    <th>Phone number</th>
+    <th>Entity</th>
+    <th>Profession</th>
+    <th>Professional Level</th>
+  </tr>
+  <% @profiles.each do |p| %>
+  <tr>
+    <td><%= p.id %></td>
+    <td><%= p.user.email %></td>
+    <td><%= p.name %></td>
+    <td><%= p.phone_number %></td>
+    <td><%= p.entity %></td>
+    <td><%= p.profession %></td>
+    <td><%= p.pro_level %></td>
+  </tr>
+  <% end %>
+</table>
