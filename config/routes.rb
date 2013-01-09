@@ -12,5 +12,4 @@ Spartups::Application.routes.draw do
   resources :profiles
   resources :projects
   resources :relations
-
 end
